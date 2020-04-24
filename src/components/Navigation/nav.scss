@@ -1,0 +1,28 @@
+$black: #000;
+$gray: #707070;
+
+.nav {
+    border: 1px solid $gray;
+    margin-bottom: 40px;
+
+    & > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 15px;
+        display: flex;
+
+        & > li {
+            display: flex;
+            padding: 20px 15px;
+
+            & > a {
+                color: $gray;
+                text-decoration: none;
+
+                &.active {
+                    color: $black;
+                }
+            }
+        }
+    }
+}

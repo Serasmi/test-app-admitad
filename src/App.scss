@@ -1,5 +1,29 @@
+$gray: #707070;
+
 .App {
   text-align: center;
+}
+
+.App-container {
+  padding: 29px 48px;
+  font-size: 22px;
+  color: $gray;
+
+  & > #content {
+    border: 1px solid $gray;
+    padding: 70px 30px;
+    display: flex;
+    overflow-x: auto;
+
+    & > div {
+      display: flex;
+    }
+
+    & > .content {
+      min-width: 600px;
+      padding-top: 10px;
+    }
+  }
 }
 
 .App-logo {
