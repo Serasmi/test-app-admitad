@@ -1,5 +1,9 @@
 $gray: #707070;
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -21,7 +25,6 @@ $gray: #707070;
 
     & > .content {
       min-width: 600px;
-      padding-top: 10px;
     }
   }
 }
