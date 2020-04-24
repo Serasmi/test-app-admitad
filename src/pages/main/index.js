@@ -7,7 +7,7 @@ const Main = ({ image = {} }) => {
     if (image.url) {
       console.log('Saved!');
     } else {
-      console.log('Loaded!');
+      console.log('Load...');
     }
   };
 
