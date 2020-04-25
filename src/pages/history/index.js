@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { remove, selectImages } from './historySlice';
 
+import NoData from '../../components/NoData';
 import PictureRow from '../../components/PictureRow';
 
 const History = () => {
@@ -12,9 +13,11 @@ const History = () => {
 
   return (
     <div className="history">
-      {images.map((image) => (
-        <PictureRow key={image.createdAt} {...{ onRemove, ...image }} />
-      ))}
+      {images.length ? (
+        images.map((image) => <PictureRow key={image.createdAt} {...{ onRemove, ...image }} />)
+      ) : (
+        <NoData>Изображения отсутствуют</NoData>
+      )}
     </div>
   );
 };

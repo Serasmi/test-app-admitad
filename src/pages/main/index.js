@@ -4,6 +4,8 @@ import { selectImage } from './mainSlice';
 import { add } from '../history/historySlice';
 
 import Button from '../../components/Button';
+import NoData from '../../components/NoData';
+
 import './main.scss';
 
 const Main = () => {
@@ -13,7 +15,6 @@ const Main = () => {
   const handleClick = () => {
     if (image.url) {
       dispatch(add(image));
-      console.log('Saved!');
     }
 
     console.log('Load new image...');
@@ -21,7 +22,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      {image.url ? <img src={image.url} alt={image.title} /> : <div className="hint">Изображение отсутствует</div>}
+      {image.url ? <img src={image.url} alt={image.title} /> : <NoData>Изображение отсутствует</NoData>}
       <Button onClick={handleClick}>Загрузить</Button>
     </div>
   );
