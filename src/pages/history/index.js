@@ -1,27 +1,20 @@
 import React from 'react';
-import moment from 'moment';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove, selectImages } from './historySlice';
 
 import PictureRow from '../../components/PictureRow';
 
-const fakeData = {
-  url: 'http://www.opeterburge.ru/images/content/lajfkhaki/sankt_peterburg_foto_01.jpg',
-  title: 'Санкт-Петербург',
-  createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
-};
+const History = () => {
+  const images = useSelector(selectImages);
+  const dispatch = useDispatch();
 
-const History = ({ pictures = [] }) => {
+  const onRemove = (createdAt) => dispatch(remove(createdAt));
+
   return (
     <div className="history">
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
-      <PictureRow {...fakeData} />
+      {images.map((image) => (
+        <PictureRow key={image.createdAt} {...{ onRemove, ...image }} />
+      ))}
     </div>
   );
 };

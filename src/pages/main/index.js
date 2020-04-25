@@ -1,14 +1,22 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectImage } from './mainSlice';
+import { add } from '../history/historySlice';
+
 import Button from '../../components/Button';
 import './main.scss';
 
-const Main = ({ image = {} }) => {
+const Main = () => {
+  const image = useSelector(selectImage);
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     if (image.url) {
+      dispatch(add(image));
       console.log('Saved!');
-    } else {
-      console.log('Load...');
     }
+
+    console.log('Load new image...');
   };
 
   return (
