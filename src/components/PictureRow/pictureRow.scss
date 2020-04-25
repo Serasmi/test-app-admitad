@@ -19,12 +19,17 @@
       height: 100%;
     }
 
-    .icon {
-      opacity: 0.5;
+    .picture-icon-wrapper {
+      display: flex;
+      border-radius: 100%;
+      background: #fff;
+      width: 18px;
+      height: 18px;
       cursor: pointer;
       position: absolute;
-      right: 0;
-      bottom: 0;
+      right: 2px;
+      bottom: 2px;
+      opacity: 0.5;
     }
   }
 

@@ -10,7 +10,7 @@ export const historySlice = createSlice({
     add: (state, action) => {
       const newImage = { ...action.payload, createdAt: moment().valueOf() };
 
-      state.images.push(newImage);
+      state.images.unshift(newImage);
     },
     remove: (state, action) => {
       const id = state.images.findIndex((image) => image.createdAt === action.payload);
@@ -22,6 +22,7 @@ export const historySlice = createSlice({
 
 export const { add, remove } = historySlice.actions;
 
+// Selectors
 export const selectImages = (state) => state.history.images;
 
 export default historySlice.reducer;
